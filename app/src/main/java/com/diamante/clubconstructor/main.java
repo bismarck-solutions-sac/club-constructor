@@ -1,6 +1,4 @@
 package com.diamante.clubconstructor;
-
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -11,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -52,13 +49,9 @@ import com.diamante.clubconstructor.request.RequestParameter;
 import com.diamante.clubconstructor.response.ResponseData;
 import com.diamante.clubconstructor.util.constantes;
 import com.diamante.clubconstructor.util.functions;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.google.firebase.iid.FirebaseInstanceId;
-import com.google.firebase.iid.InstanceIdResult;
-
 import java.io.ByteArrayOutputStream;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -158,7 +151,6 @@ public class main extends AppCompatActivity {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                     Uri selectedImage = data.getData();
                     imageBitmap = MediaStore.Images.Media. getBitmap ( this .getContentResolver() , selectedImage) ;
-                    //imageBitmap = Bitmap. createScaledBitmap ( imageBitmap , dstWith , dstHeight, true ) ;
                     cimgprofile.setImageBitmap(imageBitmap);
                 } else {
                     imageBitmap = extras.getParcelable("data");
@@ -427,8 +419,12 @@ public class main extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.main_menu, menu);
+        try {
+            MenuInflater inflater = getMenuInflater();
+            inflater.inflate(R.menu.main_menu, menu);
+        }catch (Exception e){
+            createDialogError(e.getMessage(), "onCreateOptionsMenu").show();
+        }
         return true;
     }
 
