@@ -1,19 +1,11 @@
 package com.diamante.clubconstructor.firebase;
 import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.content.Context;
-import android.content.Intent;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.util.Log;
-import android.widget.Toast;
-
-import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
-
-import com.diamante.clubconstructor.R;
 import com.diamante.clubconstructor.globals.globals;
-import com.diamante.clubconstructor.main;
 import com.diamante.clubconstructor.model.NotificationData;
 import com.diamante.clubconstructor.network.HelperWS;
 import com.diamante.clubconstructor.network.MethodWS;
@@ -35,9 +27,6 @@ public class MessagingServices extends FirebaseMessagingService {
 
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
-        // ...
-
-        // TODO(developer): Handle FCM messages here.
         // Not getting messages here? See why this may be: https://goo.gl/39bRNJ
         Log.d(TAG, "From: " + remoteMessage.getFrom());
         NotificationData data = new NotificationData();
@@ -48,29 +37,19 @@ public class MessagingServices extends FirebaseMessagingService {
             data.idreward = remoteMessage.getData().get("idreward").toString();
 
             if (/* Check if data needs to be processed by long running job */ true) {
-                // For long-running tasks (10 seconds or more) use Firebase Job Dispatcher.
-                //scheduleJob();
+
             } else {
-                // Handle message within 10 seconds
-                //handleNow();
+
             }
         }
 
-        // Check if message contains a notification payload.
         if (remoteMessage.getNotification() != null) {
             Log.d(TAG, "Message Notification Body: " + remoteMessage.getNotification().getBody());
             showNotification(remoteMessage.getNotification().getTitle(), remoteMessage.getNotification().getBody());
         }
-
-        // Also if you intend on generating your own notifications as a result of a received FCM
-        // message, here is where that should be initiated. See sendNotification method below.
     }
 
     private void showNotification(String text, String title) {
-
-        //Intent intent = new Intent(this, main.class);
-        //intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        //PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT);
 
         Uri soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
@@ -82,7 +61,6 @@ public class MessagingServices extends FirebaseMessagingService {
                         .setContentText(text)
                         .setAutoCancel(true)
                         .setSound(soundUri);
-                        //.setContentIntent(pendingIntent);
 
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 

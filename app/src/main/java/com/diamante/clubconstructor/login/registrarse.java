@@ -628,13 +628,11 @@ public class registrarse extends AppCompatActivity implements dialog_single.dial
     private class ConvertBitmapToString extends AsyncTask<Bitmap, Void, String> {
         @Override
         protected void onPreExecute() {
-            // TODO Auto-generated method stub
             super.onPreExecute();
         }
 
         @Override
         protected String doInBackground(Bitmap... params) {
-            // TODO Auto-generated method stub
             String encodedImage = "";
 
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -647,7 +645,6 @@ public class registrarse extends AppCompatActivity implements dialog_single.dial
 
         @Override
         protected void onPostExecute(String result) {
-            // TODO Auto-generated method stub
             super.onPostExecute(result);
             if (result.length()!=0){
                 user.setBase64String(result);

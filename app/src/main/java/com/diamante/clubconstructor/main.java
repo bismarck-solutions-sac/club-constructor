@@ -214,7 +214,6 @@ public class main extends AppCompatActivity {
     private class ConvertBitmapToString extends AsyncTask<Bitmap, Void, String> {
         @Override
         protected void onPreExecute() {
-            // TODO Auto-generated method stub
             cimgprofile.setEnabled(false);
             dialogProgress.show();
             super.onPreExecute();
@@ -222,7 +221,6 @@ public class main extends AppCompatActivity {
 
         @Override
         protected String doInBackground(Bitmap... params) {
-            // TODO Auto-generated method stub
             String encodedImage = "";
             try {
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -239,7 +237,6 @@ public class main extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String result) {
-            // TODO Auto-generated method stub
             super.onPostExecute(result);
             if (result.length()!=0){
                 global.getUser().setBase64String(result);

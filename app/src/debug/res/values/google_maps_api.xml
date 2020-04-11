@@ -1,7 +1,5 @@
 <resources>
     <!--
-    TODO: Before you run your application, you need a Google Maps API key.
-
     To get one, follow this link, follow the directions and press "Create" at the end:
 
     https://console.developers.google.com/flows/enableapi?apiid=maps_android_backend&keyType=CLIENT_SIDE_ANDROID&r=97:F1:10:11:95:2F:F5:E7:29:C4:00:76:D2:02:DA:29:E0:D7:52:FD%3Bcom.diamante.clubconstructor.maps
