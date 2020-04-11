@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".login.conexion"
+    android:orientation="vertical"
+    android:padding="23dp">
+    <TextView
+        android:id="@+id/text_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="¡Uy! No estás conectado a internet"
+        android:fontFamily="@font/montserrat_regular"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:layout_margin="30dp"
+        android:layout_gravity="center_vertical"
+        android:textAlignment="center"/>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:src="@drawable/app_icon_conecction"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Por favor, asegúrate de que esta conectado a internet y vuelva a intentarlo."
+        android:fontFamily="@font/montserrat_regular"
+        android:textSize="14dp"
+        android:textStyle="bold"
+        android:padding="20dp"
+        android:textAlignment="center"/>
+    <Button
+        android:id="@+id/btn_close"
+        android:text="Cerrar"
+        android:fontFamily="@font/montserrat_regular"
+        android:textSize="17dp"
+        android:textStyle="bold"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_rectangle_blue"
+        android:textColor="@android:color/white"
+        android:padding="10sp"/>
+
+</LinearLayout>

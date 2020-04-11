@@ -1,0 +1,49 @@
+<resources>
+    <string name="app_name">Diamante Constructor</string>
+
+    <string name="login_title_toolbar">INGRESA A TU CUENTA</string>
+    <string name="login_recuperar_cuenta">¿Olvidaste tu contraseña?</string>
+    <string name="login_conoce_mas">Conoce más de la aplicación...</string>
+    <string name="login_pregunta">¿Aún no tienes una cuenta?</string>
+    <string name="login_registrate">Regístrate aquí...</string>
+    <string name="okay">Aceptar</string>
+    <string name="cancelar">Cerrar</string>
+    <string name="ErrorDatos">¡Uy! No estás conectado a internet</string>
+
+    <string name="registrarse_titulo">Registrarse</string>
+    <string name="about_titulo">Más Información</string>
+
+    <string name="terminos_titulo">Términos y Condiciones</string>
+    <string name="politicas_titulo">Política y Privacidad</string>
+    <string name="title_activity_marcadores">Map</string>
+
+
+    <!-- Popup Bottom Bar-->
+    <string name="bottomappbar_cotizaciones">Mis cotizaciones</string>
+    <string name="bottomappbar_puntos">Mis puntos</string>
+    <string name="bottomappbar_calculos">Mis cálculos</string>
+    <string name="bottomappbar_ubicanos">Ubícanos</string>
+    <string name="bottomappbar_contactanos">Contáctanos</string>
+    <string name="bottomappbar_close">Cerrar sesión</string>
+
+
+    <string name="title_activity_setting">Settings</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="about_faqs">Preguntas Frecuentes</string>
+    <string name="perfil_title">Editar Perfil</string>
+
+</resources>

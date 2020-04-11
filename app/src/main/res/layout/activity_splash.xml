@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/splash_background"
+    tools:context=".login.splash"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView
+        android:id="@+id/fullscreen_logo"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:src="@drawable/splash_logo"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true">
+    </ImageView>
+    <com.agrawalsuneet.dotsloader.loaders.LazyLoader
+        android:id="@+id/fullscreen_loader"
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/fullscreen_logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:lazyloader_animDur="800"
+        app:lazyloader_dotsDist="20dp"
+        app:lazyloader_dotsRadius="12dp"
+        app:lazyloader_firstDelayDur="150"
+        app:lazyloader_interpolator="@android:anim/decelerate_interpolator"
+        app:lazyloader_secondDelayDur="300"
+        app:lazyloader_firstDotColor="#F00000"
+        app:lazyloader_secondDotColor="#88EE46"
+        app:lazyloader_thirdDotColor="#FFD600"/>
+</RelativeLayout>

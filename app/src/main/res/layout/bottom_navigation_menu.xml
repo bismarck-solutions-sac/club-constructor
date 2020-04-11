@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorbackground">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:background="@color/colorPrimary">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_image"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="16dp"
+                android:src="@drawable/locales_icon_responsable"
+                app:civ_circle_background_color="@android:color/white"/>
+            <TextView
+                android:id="@+id/user_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="16dp"
+                android:layout_toLeftOf="@+id/close_image_view"
+                android:layout_toRightOf="@+id/profile_image"
+                android:hint="José Arroyo CH."
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/montserrat_bold" />
+
+            <TextView
+                android:id="@+id/user_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/user_name"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="2dp"
+                android:layout_toLeftOf="@+id/close_image_view"
+                android:layout_toRightOf="@+id/profile_image"
+                android:hint="jose.arroyo@bismarck.com.pe"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white"/>
+            <ImageView
+                android:id="@+id/close_image_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:padding="16dp"
+                android:visibility="gone"
+                app:srcCompat="@drawable/main_icon_close" />
+            <View
+                android:id="@+id/divider_one"
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:layout_below="@+id/user_email"
+                android:layout_marginTop="15dp"
+                android:background="#447e7e7e" />
+            <TextView
+                android:id="@+id/text_version"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:fontFamily="@font/montserrat_medium"
+                android:hint="Versión 1.0"
+                android:textColorHint="@android:color/white"
+                android:textSize="10dp"
+                android:layout_alignParentEnd="true"
+                android:padding="10dp">
+            </TextView>
+        </RelativeLayout>
+        <TextView
+            android:id="@+id/cotizacion"
+            style="@style/AppTheme.BottomSheetListItem"
+            android:drawableLeft="@drawable/main_icon_cotizaciones"
+            android:text="@string/bottomappbar_cotizaciones"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"/>
+
+        <TextView
+            android:id="@+id/calculos"
+            style="@style/AppTheme.BottomSheetListItem"
+            android:drawableLeft="@drawable/main_icon_calculos"
+            android:text="@string/bottomappbar_calculos"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"/>
+
+        <TextView
+            android:id="@+id/puntos"
+            style="@style/AppTheme.BottomSheetListItem"
+            android:drawableLeft="@drawable/main_icon_puntos"
+            android:text="@string/bottomappbar_puntos"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:visibility="gone"/>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1sp"
+            android:clickable="true"
+            android:background="?android:attr/listDivider" />
+
+        <TextView
+            android:id="@+id/ubicanos"
+            style="@style/AppTheme.BottomSheetListItem"
+            android:drawableLeft="@drawable/main_icon_location"
+            android:text="@string/bottomappbar_ubicanos"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"/>
+
+        <TextView
+            android:id="@+id/contactanos"
+            style="@style/AppTheme.BottomSheetListItem"
+            android:drawableLeft="@drawable/main_icon_phone"
+            android:text="@string/bottomappbar_contactanos"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"/>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1sp"
+            android:clickable="true"
+            android:background="?android:attr/listDivider" />
+
+        <TextView
+            android:id="@+id/close"
+            style="@style/AppTheme.BottomSheetListItem"
+            android:drawableLeft="@drawable/main_icon_logout"
+            android:text="@string/bottomappbar_close"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"/>
+    </LinearLayout>
+
+</ScrollView>

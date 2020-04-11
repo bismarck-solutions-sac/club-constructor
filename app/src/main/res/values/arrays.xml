@@ -1,0 +1,25 @@
+<resources>
+    <!-- Reply Preference -->
+    <string-array name="reply_entries">
+        <item>Reply</item>
+        <item>Reply to all</item>
+    </string-array>
+
+    <string-array name="reply_values">
+        <item>reply</item>
+        <item>reply_all</item>
+    </string-array>
+
+    <string-array name="stepLabels">
+        <item>Ubicación</item>
+        <item>Tipos</item>
+        <item>Productos</item>
+        <item>Datos</item>
+        <item>Procesar</item>
+    </string-array>
+    <string-array name="statusLevel">
+        <item>Bronce</item>
+        <item>Plata</item>
+        <item>Oro</item>
+    </string-array>
+</resources>
