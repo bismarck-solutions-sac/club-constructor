@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".cotizacion.cotizacion_step0"
+    tools:context=".cotizacion.cotizacion_ubicacion"
     android:background="@color/colorbackground"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:keepScreenOn="true">
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbarlayout"
         android:layout_width="match_parent"

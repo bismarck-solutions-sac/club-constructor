@@ -2,7 +2,6 @@ package com.diamante.clubconstructor.adapters;
 import android.animation.Animator;
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.view.LayoutInflater;
@@ -14,18 +13,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.diamante.clubconstructor.R;
-import com.diamante.clubconstructor.calculadora.calculadora_brick_type;
-import com.diamante.clubconstructor.contacto.contacto;
-import com.diamante.clubconstructor.cotizacion.cotizacion_step0;
-import com.diamante.clubconstructor.maps.locales;
 import com.diamante.clubconstructor.model.BonusCanje;
-import com.diamante.clubconstructor.model.Menu;
-import com.diamante.clubconstructor.util.constantes;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -60,6 +51,7 @@ public class BonusCanjeListAdapter extends RecyclerView.Adapter<BonusCanjeListAd
             holder.textFecha.setText(bonusCanjes.get(position).fecha.substring(0,10));
             holder.textDocumento.setText(bonusCanjes.get(position).referenciatipodocumento + "-" + bonusCanjes.get(position).referenciadocumento);
             holder.textPuntos.setText(formato.format(bonusCanjes.get(position).puntajeconsumido));
+            holder.textvendedor.setText(bonusCanjes.get(position).vendedor);
             if (bonusCanjes.get(position).ingresoegresoflag.equals("E")){
                 holder.imageView.setImageDrawable(context.getApplicationContext().getDrawable(R.drawable.app_icon_egreso));
             }else{
@@ -87,7 +79,7 @@ public class BonusCanjeListAdapter extends RecyclerView.Adapter<BonusCanjeListAd
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        private TextView textFecha, textDocumento, textPuntos;
+        private TextView textFecha, textDocumento, textPuntos, textvendedor;
         private ImageView imageView;
         public ViewHolder(View Item){
             super(Item);
@@ -95,6 +87,7 @@ public class BonusCanjeListAdapter extends RecyclerView.Adapter<BonusCanjeListAd
                 textFecha       = Item.findViewById(R.id.fecha);
                 textDocumento   = Item.findViewById(R.id.documento);
                 textPuntos      = Item.findViewById(R.id.puntos);
+                textvendedor    = Item.findViewById(R.id.vendedor);
                 imageView       = Item.findViewById(R.id.image);
             }catch (Exception e){
                 createDialogError(e.getMessage(), "Error: ViewHolder").show();

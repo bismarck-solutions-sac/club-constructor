@@ -113,7 +113,7 @@ public class cotizacion_finish extends AppCompatActivity {
             btnCotizar.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    startActivity(new Intent(context, cotizacion_step0.class)
+                    startActivity(new Intent(context, cotizacion_ubicacion.class)
                             .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
                     finish();
                 }

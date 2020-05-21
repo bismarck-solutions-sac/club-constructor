@@ -16,15 +16,13 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.cardview.widget.CardView;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
 import com.diamante.clubconstructor.R;
-import com.diamante.clubconstructor.club.clublevel;
-import com.diamante.clubconstructor.club.clubpromocion_detail;
+import com.diamante.clubconstructor.club.club_promocion_detail;
 import com.diamante.clubconstructor.model.Promocion;
 import com.diamante.clubconstructor.model.PromocionCategoria;
 import com.diamante.clubconstructor.util.constantes;
@@ -84,7 +82,7 @@ public class PromocionListAdapter extends RecyclerView.Adapter<PromocionListAdap
             holder.cardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent i = new Intent(context, clubpromocion_detail.class);
+                    Intent i = new Intent(context, club_promocion_detail.class);
                     i.putExtra("Promocion", promocions.get(position));
                     i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     (context).startActivity(i);

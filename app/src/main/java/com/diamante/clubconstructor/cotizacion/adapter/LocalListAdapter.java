@@ -14,20 +14,14 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.diamante.clubconstructor.R;
-import com.diamante.clubconstructor.cotizacion.cotizacion_step1;
-import com.diamante.clubconstructor.cotizacion.cotizacion_step2;
-import com.diamante.clubconstructor.cotizacion.cotizacion_step3;
-import com.diamante.clubconstructor.maps.locales_detail;
-import com.diamante.clubconstructor.model.Brick;
+import com.diamante.clubconstructor.cotizacion.cotizacion_estructura;
+import com.diamante.clubconstructor.cotizacion.cotizacion_datos;
 import com.diamante.clubconstructor.model.Estimated;
 import com.diamante.clubconstructor.model.EstimatedDetail;
 import com.diamante.clubconstructor.model.Local;
-import com.google.android.gms.maps.model.LatLng;
 
-import java.io.Serializable;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
-import java.util.ArrayList;
 import java.util.List;
 
 public class LocalListAdapter extends RecyclerView.Adapter<LocalListAdapter.ViewHolder>{
@@ -66,12 +60,12 @@ public class LocalListAdapter extends RecyclerView.Adapter<LocalListAdapter.View
 
                     if (estimated != null){
                         if (estimated.getDetail().size()==0){
-                            i = new Intent(context, cotizacion_step1.class);
+                            i = new Intent(context, cotizacion_estructura.class);
                         }else{
-                            i = new Intent(context, cotizacion_step3.class);
+                            i = new Intent(context, cotizacion_datos.class);
                         }
                     }else{
-                        i = new Intent(context, cotizacion_step1.class);
+                        i = new Intent(context, cotizacion_estructura.class);
                     }
                     i.putExtra("estimated", estimated);
                     i.putExtra("agencia", local.get(position));

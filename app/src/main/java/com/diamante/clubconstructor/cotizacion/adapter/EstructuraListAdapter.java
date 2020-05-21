@@ -19,15 +19,12 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
 import com.diamante.clubconstructor.R;
-import com.diamante.clubconstructor.calculadora.calculadora_metraje;
-import com.diamante.clubconstructor.cotizacion.cotizacion_step2;
+import com.diamante.clubconstructor.cotizacion.cotizacion_ladrillo;
 import com.diamante.clubconstructor.dialogos.dialog_custom;
 import com.diamante.clubconstructor.model.Brick;
-import com.diamante.clubconstructor.model.EstimatedDetail;
 import com.diamante.clubconstructor.model.GeneralSpinner;
 import com.diamante.clubconstructor.model.Local;
 import com.diamante.clubconstructor.util.constantes;
-import com.google.android.gms.maps.model.LatLng;
 
 import java.io.Serializable;
 import java.util.List;
@@ -69,7 +66,7 @@ public class EstructuraListAdapter extends RecyclerView.Adapter<EstructuraListAd
             holder.cardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent i = new Intent(context, cotizacion_step2.class);
+                    Intent i = new Intent(context, cotizacion_ladrillo.class);
                     i.putExtra("brick_type", estructura.get(position));
                     i.putExtra("bricks_add", (Serializable) bricks_add);
                     i.putExtra("agencia", local);

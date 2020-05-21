@@ -14,6 +14,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.ColorDrawable;
+import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -65,6 +66,11 @@ public class locales extends AppCompatActivity implements OnMapReadyCallback {
     private Context context;
     private Toolbar toolbar;
 
+    private Criteria criteria;
+    private String  location_provider;
+    private int location_min_time = 500;
+    private int location_distance = 1;
+
     @Override
     protected void onPause() {
         super.onPause();
@@ -111,6 +117,13 @@ public class locales extends AppCompatActivity implements OnMapReadyCallback {
             recyclerView.setHasFixedSize(true);
             recyclerView.setLayoutManager(linearLayoutManager);
 
+            criteria = new Criteria();
+            criteria.setAccuracy(Criteria.ACCURACY_FINE);
+            criteria.setAltitudeRequired(false);
+            criteria.setBearingRequired(false);
+            criteria.setCostAllowed(true);
+            criteria.setPowerRequirement(Criteria.POWER_HIGH);
+
             if (isLocationEnabled()) {
                 setup_googleMap();
                 loadData();
@@ -143,7 +156,7 @@ public class locales extends AppCompatActivity implements OnMapReadyCallback {
                     return;
                 }
             }
-            Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+            Location location = locationManager.getLastKnownLocation(location_provider);
             if (location != null) {
                 LatLng ubicacion = new LatLng(location.getLatitude(), location.getLongitude());
                 CameraPosition cameraPosition = new CameraPosition.Builder()
@@ -192,7 +205,7 @@ public class locales extends AppCompatActivity implements OnMapReadyCallback {
                                     return;
                                 }
                             }
-                            Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                            Location location = locationManager.getLastKnownLocation(location_provider);
                             if (location!=null){
                                 calcular_distancia(location);
                             }
@@ -232,7 +245,7 @@ public class locales extends AppCompatActivity implements OnMapReadyCallback {
                             return;
                         }
                     }
-                    location    = locationManager.getLastKnownLocation(locationManager.GPS_PROVIDER);
+                    location    = locationManager.getLastKnownLocation(location_provider);
                     ubicacion   = new LatLng(location.getLatitude(), location.getLongitude());
                 }
                 CameraPosition cameraPosition = new CameraPosition.Builder()
@@ -292,14 +305,18 @@ public class locales extends AppCompatActivity implements OnMapReadyCallback {
 
     private boolean isLocationEnabled() {
         try {
-            locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
-            if (!locationManager.isProviderEnabled(locationManager.GPS_PROVIDER)) {
+            locationManager     = (LocationManager) getSystemService(LOCATION_SERVICE);
+            location_provider   = locationManager.getBestProvider(criteria, false);
+            if (location_provider ==null){
+                location_provider = locationManager.GPS_PROVIDER;
+            }
+            if (!locationManager.isProviderEnabled(location_provider)) {
                 startActivityForResult(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS), REQUEST_GPS_ENABLED);
             } else {
                 if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                     ActivityCompat.requestPermissions(locales.this, new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_GPS_PERMISSION);
                 } else {
-                    locationManager.requestLocationUpdates(locationManager.GPS_PROVIDER, 2000, 10, locationListenerGPS);
+                    locationManager.requestLocationUpdates(location_provider, location_min_time, location_distance, locationListenerGPS);
                     return true;
                 }
 
@@ -356,7 +373,7 @@ public class locales extends AppCompatActivity implements OnMapReadyCallback {
                                 return;
                             }
                         }
-                        locationManager.requestLocationUpdates(locationManager.GPS_PROVIDER, 2000, 10, locationListenerGPS);
+                        locationManager.requestLocationUpdates(location_provider, location_min_time, location_distance, locationListenerGPS);
                         setup_googleMap();
                         loadData();
                     } else {

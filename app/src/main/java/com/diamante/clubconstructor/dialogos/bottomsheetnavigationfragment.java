@@ -28,7 +28,7 @@ import com.diamante.clubconstructor.calculadora.calculadora_list;
 import com.diamante.clubconstructor.contacto.contacto;
 import com.diamante.clubconstructor.cotizacion.cotizacion_list;
 import com.diamante.clubconstructor.globals.globals;
-import com.diamante.clubconstructor.club.clublevel;
+import com.diamante.clubconstructor.club.club_puntos;
 import com.diamante.clubconstructor.login.splash;
 import com.diamante.clubconstructor.maps.locales;
 import com.diamante.clubconstructor.util.constantes;
@@ -150,7 +150,7 @@ public class bottomsheetnavigationfragment extends BottomSheetDialogFragment {
             textPuntos.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent i = new Intent(getContext(), clublevel.class);
+                    Intent i = new Intent(getContext(), club_puntos.class);
                     i.putExtra("user", global.getUser());
                     i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(i);

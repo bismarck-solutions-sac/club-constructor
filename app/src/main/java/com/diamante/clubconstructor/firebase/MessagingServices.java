@@ -1,10 +1,16 @@
 package com.diamante.clubconstructor.firebase;
 import android.app.NotificationManager;
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.util.Log;
+import android.widget.Toast;
+
 import androidx.core.app.NotificationCompat;
+import androidx.preference.PreferenceManager;
+
 import com.diamante.clubconstructor.globals.globals;
 import com.diamante.clubconstructor.model.NotificationData;
 import com.diamante.clubconstructor.network.HelperWS;
@@ -24,36 +30,27 @@ public class MessagingServices extends FirebaseMessagingService {
     public MessagingServices() {
     }
 
-
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
-        // Not getting messages here? See why this may be: https://goo.gl/39bRNJ
-        Log.d(TAG, "From: " + remoteMessage.getFrom());
-        NotificationData data = new NotificationData();
 
-        // Check if message contains a data payload.
-        if (remoteMessage.getData().size() > 0) {
-            Log.d(TAG, "Message data payload: " + remoteMessage.getData());
-            data.idreward = remoteMessage.getData().get("idreward").toString();
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        boolean notify =pref.getBoolean("notify", false);
+        if (!notify){
 
-            if (/* Check if data needs to be processed by long running job */ true) {
-
-            } else {
-
-            }
+            return;
         }
+        Log.d("Preference", String.valueOf(notify));
+        NotificationData data = new NotificationData();
+        if (remoteMessage.getData().size() > 0) {
 
+        }
         if (remoteMessage.getNotification() != null) {
-            Log.d(TAG, "Message Notification Body: " + remoteMessage.getNotification().getBody());
             showNotification(remoteMessage.getNotification().getTitle(), remoteMessage.getNotification().getBody());
         }
     }
 
     private void showNotification(String text, String title) {
-
         Uri soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-
-
         NotificationCompat.Builder notificationBuilder =
                 new NotificationCompat.Builder(this)
                         .setSmallIcon(android.R.drawable.stat_sys_warning)
@@ -61,9 +58,7 @@ public class MessagingServices extends FirebaseMessagingService {
                         .setContentText(text)
                         .setAutoCancel(true)
                         .setSound(soundUri);
-
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-
         notificationManager.notify(0, notificationBuilder.build());
     }
 

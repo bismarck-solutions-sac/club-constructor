@@ -2,7 +2,6 @@ package com.diamante.clubconstructor.faqs.adapter;
 import android.animation.Animator;
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.text.Html;
@@ -16,19 +15,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
-import androidx.cardview.widget.CardView;
 import androidx.core.text.HtmlCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.diamante.clubconstructor.R;
-import com.diamante.clubconstructor.calculadora.calculadora_brick_type;
-import com.diamante.clubconstructor.contacto.contacto;
-import com.diamante.clubconstructor.cotizacion.cotizacion_step0;
-import com.diamante.clubconstructor.maps.locales;
 import com.diamante.clubconstructor.model.Faqs;
-import com.diamante.clubconstructor.model.Menu;
-import com.diamante.clubconstructor.util.constantes;
 
 import java.util.List;
 

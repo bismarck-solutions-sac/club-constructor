@@ -35,7 +35,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
 import com.diamante.clubconstructor.adapters.MenuListAdapter;
-import com.diamante.clubconstructor.club.clublevel;
+import com.diamante.clubconstructor.club.club_puntos;
 import com.diamante.clubconstructor.dialogos.bottomsheetnavigationfragment;
 import com.diamante.clubconstructor.faqs.faqs;
 import com.diamante.clubconstructor.globals.globals;
@@ -325,7 +325,7 @@ public class main extends AppCompatActivity {
             cigpuntos.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent i = new Intent(context, clublevel.class);
+                    Intent i = new Intent(context, club_puntos.class);
                     i.putExtra("user", global.getUser());
                     i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(i);
@@ -435,6 +435,7 @@ public class main extends AppCompatActivity {
                     i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(i);
                     break;
+
                 case R.id.action_account:
                     if (global.getUser().id>0){
                         i = new Intent(context, profile.class);
@@ -443,6 +444,7 @@ public class main extends AppCompatActivity {
                         startActivity(i);
                     }
                     break;
+
                 case R.id.action_www:
                     String dato = function.f_read_parametros_explicacion("999999", "VM", "CPAGINAWEB");
                     Uri uri     = Uri.parse(dato);

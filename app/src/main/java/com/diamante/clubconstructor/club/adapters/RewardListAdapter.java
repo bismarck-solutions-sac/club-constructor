@@ -21,9 +21,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
 import com.diamante.clubconstructor.R;
-import com.diamante.clubconstructor.club.clubpromocion_detail;
-import com.diamante.clubconstructor.club.clubreward_detail;
-import com.diamante.clubconstructor.model.Noticias;
+import com.diamante.clubconstructor.club.club_canjes_detail;
 import com.diamante.clubconstructor.model.Reward;
 import com.diamante.clubconstructor.util.constantes;
 
@@ -82,7 +80,7 @@ public class RewardListAdapter extends RecyclerView.Adapter<RewardListAdapter.Vi
             holder.cardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent i = new Intent(context, clubreward_detail.class);
+                    Intent i = new Intent(context, club_canjes_detail.class);
                     i.putExtra("Reward", rewards.get(position));
                     i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     (context).startActivity(i);

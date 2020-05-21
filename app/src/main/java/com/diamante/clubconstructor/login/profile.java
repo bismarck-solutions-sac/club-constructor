@@ -101,7 +101,7 @@ public class profile extends AppCompatActivity implements dialog_single.dialog_s
             btn_ok              = findViewById(R.id.btn_ok);
             btn_clave           = findViewById(R.id.btn_password);
 
-            edt_dni.setEnabled(false);
+            //edt_dni.setEnabled(false);
             text_tipo.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

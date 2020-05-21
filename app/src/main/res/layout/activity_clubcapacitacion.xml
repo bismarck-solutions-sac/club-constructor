@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".club.clubcapacitacion"
+    tools:context=".club.club_capacitacion"
     android:background="@color/colorbackground"
     android:orientation="vertical">
     <com.google.android.material.appbar.AppBarLayout

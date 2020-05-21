@@ -21,6 +21,5 @@
         android:orderInCategory="100"
         android:title="Configuración"
         app:showAsAction="always"
-        android:icon="@drawable/main_icon_settings"
-        android:visible="false"/>
+        android:icon="@drawable/main_icon_settings"/>
 </menu>

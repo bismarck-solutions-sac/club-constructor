@@ -2,7 +2,9 @@ package com.diamante.clubconstructor.club.adapters;
 import android.animation.Animator;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -62,6 +65,21 @@ public class CharlasListAdapter extends RecyclerView.Adapter<CharlasListAdapter.
                     .into(holder.imageView);
             holder.name.setText(charlas.get(position).title);
             holder.descripcion.setText(charlas.get(position).description);
+            holder.cardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String link = charlas.get(position).getLink();
+                    if (link!=null){
+                        try {
+                            Intent i = new Intent(android.content.Intent.ACTION_VIEW);
+                            i.setData(Uri.parse(link));
+                            (context).startActivity(i);
+                        }catch (Exception e){
+                            createDialogError(e.getMessage(), "Error: cardView_onClick").show();
+                        }
+                    }
+                }
+            });
         }catch (Exception e){
             createDialogError(e.getMessage(), "Error: onBindViewHolder").show();
         }
@@ -86,12 +104,14 @@ public class CharlasListAdapter extends RecyclerView.Adapter<CharlasListAdapter.
     public class ViewHolder extends RecyclerView.ViewHolder{
         private ImageView imageView;
         private TextView name, descripcion;
+        private CardView cardView;
         public ViewHolder(View Item){
             super(Item);
             try {
                 imageView   = Item.findViewById(R.id.imgView);
                 name        = Item.findViewById(R.id.name);
                 descripcion = Item.findViewById(R.id.descripcion);
+                cardView    = Item.findViewById(R.id.cardview);
             }catch (Exception e){
                 createDialogError(e.getMessage(), "Error: ViewHolder").show();
             }

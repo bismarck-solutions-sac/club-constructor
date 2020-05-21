@@ -26,8 +26,7 @@ import android.widget.TextView;
 
 import com.diamante.clubconstructor.R;
 import com.diamante.clubconstructor.calculadora.adapter.ResultListAdapter;
-import com.diamante.clubconstructor.cotizacion.cotizacion_step0;
-import com.diamante.clubconstructor.globals.globals;
+import com.diamante.clubconstructor.cotizacion.cotizacion_ubicacion;
 import com.diamante.clubconstructor.main;
 import com.diamante.clubconstructor.model.Brick;
 import com.diamante.clubconstructor.model.Estimated;
@@ -232,7 +231,7 @@ public class calculadora_bricks_result extends AppCompatActivity {
             btnCotizar.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent i = new Intent(context, cotizacion_step0.class);
+                    Intent i = new Intent(context, cotizacion_ubicacion.class);
                     i.putExtra("estimated", estimated );
                     i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(i);

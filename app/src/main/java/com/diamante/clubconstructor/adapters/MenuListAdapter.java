@@ -23,16 +23,15 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
 import com.diamante.clubconstructor.R;
 import com.diamante.clubconstructor.calculadora.calculadora_brick_type;
-import com.diamante.clubconstructor.club.clubcapacitacion;
-import com.diamante.clubconstructor.club.clublevel;
-import com.diamante.clubconstructor.club.clubmenu;
-import com.diamante.clubconstructor.club.clubnoticias;
-import com.diamante.clubconstructor.club.clubpromocion;
-import com.diamante.clubconstructor.club.clubreward;
-import com.diamante.clubconstructor.club.clubtrabajo;
+import com.diamante.clubconstructor.club.club_capacitacion;
+import com.diamante.clubconstructor.club.club_puntos;
+import com.diamante.clubconstructor.club.club_menu;
+import com.diamante.clubconstructor.club.club_noticias;
+import com.diamante.clubconstructor.club.club_promocion;
+import com.diamante.clubconstructor.club.club_canjes;
+import com.diamante.clubconstructor.club.club_trabajo;
 import com.diamante.clubconstructor.contacto.contacto;
-import com.diamante.clubconstructor.cotizacion.cotizacion_step0;
-import com.diamante.clubconstructor.globals.globals;
+import com.diamante.clubconstructor.cotizacion.cotizacion_ubicacion;
 import com.diamante.clubconstructor.maps.locales;
 import com.diamante.clubconstructor.model.Menu;
 import com.diamante.clubconstructor.model.User;
@@ -40,8 +39,6 @@ import com.diamante.clubconstructor.util.constantes;
 import com.diamante.clubconstructor.util.functions;
 
 import java.util.List;
-
-import okhttp3.internal.Internal;
 
 public class MenuListAdapter extends RecyclerView.Adapter<MenuListAdapter.ViewHolder>{
     private Context context;
@@ -100,7 +97,7 @@ public class MenuListAdapter extends RecyclerView.Adapter<MenuListAdapter.ViewHo
                             i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             break;
                         case "cotizar":
-                            i = new Intent(context, cotizacion_step0.class);
+                            i = new Intent(context, cotizacion_ubicacion.class);
                             i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             break;
                         case "donde-comprar":
@@ -117,34 +114,34 @@ public class MenuListAdapter extends RecyclerView.Adapter<MenuListAdapter.ViewHo
                                 createDialogError("Opción no disponible para su perfil, comuníquese con servicio al cliente.", context.getString(R.string.app_name) ).show();
                                 return;
                             }
-                            i = new Intent(context, clubmenu.class);
+                            i = new Intent(context, club_menu.class);
                             i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             i.putExtra("user", user);
                             break;
                         case "mis-puntos":
-                            i = new Intent(context, clublevel.class);
+                            i = new Intent(context, club_puntos.class);
                             i.putExtra("user", user);
                             i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             break;
                         case "promociones-especiales":
-                            i = new Intent(context, clubpromocion.class);
+                            i = new Intent(context, club_promocion.class);
                             i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             break;
                         case "portal-de-trabajo":
-                            i = new Intent(context, clubtrabajo.class);
+                            i = new Intent(context, club_trabajo.class);
                             i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             break;
                         case "noticias":
-                            i = new Intent(context, clubnoticias.class);
+                            i = new Intent(context, club_noticias.class);
                             i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             break;
                         case "capacitacion-virtual":
-                            i = new Intent(context, clubcapacitacion.class);
+                            i = new Intent(context, club_capacitacion.class);
                             i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             break;
 
                         case "premios":
-                            i = new Intent(context, clubreward.class);
+                            i = new Intent(context, club_canjes.class);
                             i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             break;
                         case "invitar":

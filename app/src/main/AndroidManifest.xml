@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:dist="http://schemas.android.com/apk/distribution"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.diamante.clubconstructor">
@@ -15,6 +16,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
 
     <dist:module dist:instant="true" />
 
@@ -27,7 +29,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
-        tools:replace="android:icon">
+        tools:replace="android:icon"
+        tools:ignore="LockedOrientationActivity" >
         <service android:name=".firebase.MessagingServices">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
@@ -42,14 +45,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".club.clubreward_detail"
+            android:name=".club.club_canjes_detail"
             android:screenOrientation="portrait">
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".club.clubreward"
+            android:name=".club.club_canjes"
             android:screenOrientation="portrait">
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
@@ -77,49 +80,49 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".club.clubcapacitacion"
+            android:name=".club.club_capacitacion"
             android:screenOrientation="portrait">
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".club.clubnoticias"
+            android:name=".club.club_noticias"
             android:screenOrientation="portrait">
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".club.clubtrabajo"
+            android:name=".club.club_trabajo"
             android:screenOrientation="portrait">
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".club.clubpromocion_detail"
+            android:name=".club.club_promocion_detail"
             android:screenOrientation="portrait">
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".club.clubpromocion"
+            android:name=".club.club_promocion"
             android:screenOrientation="portrait">
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".club.clubmenu"
+            android:name=".club.club_menu"
             android:screenOrientation="portrait">
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".club.clublevel"
+            android:name=".club.club_puntos"
             android:screenOrientation="portrait">
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
@@ -140,35 +143,35 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".cotizacion.cotizacion_step4"
+            android:name=".cotizacion.cotizacion_procesar"
             android:screenOrientation="portrait">
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".cotizacion.cotizacion_step3"
+            android:name=".cotizacion.cotizacion_datos"
             android:screenOrientation="portrait">
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".cotizacion.cotizacion_step0"
+            android:name=".cotizacion.cotizacion_ubicacion"
             android:screenOrientation="portrait">
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".cotizacion.cotizacion_step2"
+            android:name=".cotizacion.cotizacion_ladrillo"
             android:screenOrientation="portrait">
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".cotizacion.cotizacion_step1"
+            android:name=".cotizacion.cotizacion_estructura"
             android:screenOrientation="portrait">
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
@@ -250,7 +253,6 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -324,5 +326,4 @@
         </activity>
         <activity android:name=".adapters.MenuListAdapter" />
     </application>
-
 </manifest>
