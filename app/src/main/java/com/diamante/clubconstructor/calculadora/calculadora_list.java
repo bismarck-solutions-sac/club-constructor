@@ -24,7 +24,7 @@ import android.widget.TextView;
 import com.diamante.clubconstructor.R;
 import com.diamante.clubconstructor.adapters.CalcListAdapter;
 import com.diamante.clubconstructor.globals.globals;
-import com.diamante.clubconstructor.main;
+import com.diamante.clubconstructor.principal;
 import com.diamante.clubconstructor.model.User;
 import com.diamante.clubconstructor.network.HelperWS;
 import com.diamante.clubconstructor.network.MethodWS;
@@ -111,7 +111,7 @@ public class calculadora_list extends AppCompatActivity{
             home.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent i = new Intent(getApplicationContext(), main.class);
+                    Intent i = new Intent(getApplicationContext(), principal.class);
                     i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(i);
                     finish();

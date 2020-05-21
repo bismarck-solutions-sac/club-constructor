@@ -3,7 +3,6 @@ package com.diamante.clubconstructor.calculadora;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.DialogFragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -20,27 +19,21 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.diamante.clubconstructor.R;
-import com.diamante.clubconstructor.calculadora.adapter.BrickListAdapter;
 import com.diamante.clubconstructor.calculadora.adapter.EstructuraListAdapter;
-import com.diamante.clubconstructor.dialogos.dialog_custom;
 import com.diamante.clubconstructor.globals.globals;
-import com.diamante.clubconstructor.main;
+import com.diamante.clubconstructor.principal;
 import com.diamante.clubconstructor.model.Estimated;
 import com.diamante.clubconstructor.model.EstimatedDetail;
 import com.diamante.clubconstructor.model.GeneralSpinner;
-import com.diamante.clubconstructor.model.Local;
-import com.diamante.clubconstructor.model.User;
 import com.diamante.clubconstructor.network.HelperWS;
 import com.diamante.clubconstructor.network.MethodWS;
 import com.diamante.clubconstructor.request.RequestParameter;
 import com.diamante.clubconstructor.response.ResponseData;
-import com.diamante.clubconstructor.util.constantes;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -170,7 +163,7 @@ public class calculadora_brick_type extends AppCompatActivity {
                     if (detail.size()!=0 && global.user.id>0 ){
                         createDialogQuestion("Su cálculo aún no ha sido guardado.", "Seguro de Salir?").show();
                     }else{
-                        Intent i = new Intent(getApplicationContext(), main.class);
+                        Intent i = new Intent(getApplicationContext(), principal.class);
                         i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(i);
                         finish();
@@ -425,7 +418,7 @@ public class calculadora_brick_type extends AppCompatActivity {
         btn_ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), main.class);
+                Intent i = new Intent(getApplicationContext(), principal.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
                 finish();

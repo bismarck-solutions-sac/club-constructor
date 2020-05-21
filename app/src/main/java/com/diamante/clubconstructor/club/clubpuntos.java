@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.diamante.clubconstructor.R;
-import com.diamante.clubconstructor.main;
+import com.diamante.clubconstructor.principal;
 
 public class clubpuntos extends AppCompatActivity {
 
@@ -54,7 +54,7 @@ public class clubpuntos extends AppCompatActivity {
             home.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent i = new Intent(getApplicationContext(), main.class);
+                    Intent i = new Intent(getApplicationContext(), principal.class);
                     i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(i);
                     finish();

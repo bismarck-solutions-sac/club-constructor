@@ -17,7 +17,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.telephony.TelephonyManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
@@ -28,7 +27,7 @@ import com.agrawalsuneet.dotsloader.loaders.LazyLoader;
 import com.diamante.clubconstructor.BuildConfig;
 import com.diamante.clubconstructor.R;
 import com.diamante.clubconstructor.globals.globals;
-import com.diamante.clubconstructor.main;
+import com.diamante.clubconstructor.principal;
 import com.diamante.clubconstructor.model.Parametros;
 import com.diamante.clubconstructor.model.User;
 import com.diamante.clubconstructor.network.HelperWS;
@@ -38,7 +37,6 @@ import com.diamante.clubconstructor.response.MaestrosRequest;
 import com.diamante.clubconstructor.response.ResponseData;
 import com.diamante.clubconstructor.util.constantes;
 import com.diamante.clubconstructor.util.functions;
-import com.google.firebase.iid.FirebaseInstanceId;
 
 import java.util.List;
 
@@ -122,7 +120,7 @@ public class splash extends AppCompatActivity{
                         ResponseData request = response.body();
                         if (request.getCodigoError()==0){
                             global.setUser(request.user);
-                            Intent i = new Intent(context, main.class);
+                            Intent i = new Intent(context, principal.class);
                             i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             i.putExtra("user", request.user);
                             startActivity(i);

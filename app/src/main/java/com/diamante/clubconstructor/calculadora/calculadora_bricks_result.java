@@ -27,7 +27,7 @@ import android.widget.TextView;
 import com.diamante.clubconstructor.R;
 import com.diamante.clubconstructor.calculadora.adapter.ResultListAdapter;
 import com.diamante.clubconstructor.cotizacion.cotizacion_ubicacion;
-import com.diamante.clubconstructor.main;
+import com.diamante.clubconstructor.principal;
 import com.diamante.clubconstructor.model.Brick;
 import com.diamante.clubconstructor.model.Estimated;
 import com.diamante.clubconstructor.model.EstimatedDetail;
@@ -183,7 +183,7 @@ public class calculadora_bricks_result extends AppCompatActivity {
                     if (detail.size()!=0 && ACTION_MODE.equals("Add") && user.id>0){
                         createDialogQuestion("Su cálculo aún no esta guardado", "Seguro de Salir?").show();
                     }else{
-                        Intent i = new Intent(getApplicationContext(), main.class);
+                        Intent i = new Intent(getApplicationContext(), principal.class);
                         i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(i);
                         finish();
@@ -533,7 +533,7 @@ public class calculadora_bricks_result extends AppCompatActivity {
             btn_ok.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent i = new Intent(getApplicationContext(), main.class);
+                    Intent i = new Intent(getApplicationContext(), principal.class);
                     i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(i);
                     finish();

@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Patterns;
@@ -18,13 +17,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.diamante.clubconstructor.R;
-import com.diamante.clubconstructor.faqs.faqs;
+import com.diamante.clubconstructor.faqs.preguntas;
 import com.diamante.clubconstructor.model.User;
 import com.diamante.clubconstructor.network.HelperWS;
 import com.diamante.clubconstructor.network.MethodWS;
 import com.diamante.clubconstructor.request.RequestParameter;
 import com.diamante.clubconstructor.response.ResponseData;
-import com.diamante.clubconstructor.util.constantes;
 
 import java.util.regex.Pattern;
 
@@ -73,7 +71,7 @@ public class forgot extends AppCompatActivity {
             text_help.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent i = new Intent(context, faqs.class);
+                    Intent i = new Intent(context, preguntas.class);
                     i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(i);
                 }

@@ -12,7 +12,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -29,18 +28,16 @@ import android.widget.TextView;
 
 import com.diamante.clubconstructor.R;
 import com.diamante.clubconstructor.globals.globals;
-import com.diamante.clubconstructor.main;
+import com.diamante.clubconstructor.principal;
 import com.diamante.clubconstructor.model.Message;
 import com.diamante.clubconstructor.model.User;
 import com.diamante.clubconstructor.network.HelperWS;
 import com.diamante.clubconstructor.network.MethodWS;
 import com.diamante.clubconstructor.request.RequestParameter;
 import com.diamante.clubconstructor.response.ResponseData;
-import com.diamante.clubconstructor.util.constantes;
 import com.diamante.clubconstructor.util.functions;
 
 import java.io.Serializable;
-import java.security.PrivilegedAction;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -203,7 +200,7 @@ public class contacto extends AppCompatActivity {
             home.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent i = new Intent(getApplicationContext(), main.class);
+                    Intent i = new Intent(getApplicationContext(), principal.class);
                     i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(i);
                     finish();

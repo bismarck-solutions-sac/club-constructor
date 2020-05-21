@@ -27,9 +27,8 @@ import com.diamante.clubconstructor.R;
 import com.diamante.clubconstructor.calculadora.calculadora_brick_type;
 import com.diamante.clubconstructor.dialogos.dialog_custom;
 import com.diamante.clubconstructor.globals.globals;
-import com.diamante.clubconstructor.main;
+import com.diamante.clubconstructor.principal;
 import com.diamante.clubconstructor.maps.locales;
-import com.diamante.clubconstructor.model.Direccion;
 import com.diamante.clubconstructor.response.ResponseData;
 import com.diamante.clubconstructor.model.User;
 import com.diamante.clubconstructor.network.HelperWS;
@@ -125,7 +124,7 @@ public class login extends AppCompatActivity implements dialog_custom.dialog_suc
             textregistrarse.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent i = new Intent(context, registrarse.class);
+                    Intent i = new Intent(context, registro.class);
                     i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(i);
                     finish();
@@ -134,7 +133,7 @@ public class login extends AppCompatActivity implements dialog_custom.dialog_suc
             signInButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent i = new Intent(context, registrarse.class);
+                    Intent i = new Intent(context, registro.class);
                     i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     i.putExtra("MODO", "GOOGLE");
                     startActivity(i);
@@ -144,7 +143,7 @@ public class login extends AppCompatActivity implements dialog_custom.dialog_suc
             textabout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent i = new Intent(context, about.class);
+                    Intent i = new Intent(context, acerca.class);
                     i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(i);
                 }
@@ -255,7 +254,7 @@ public class login extends AppCompatActivity implements dialog_custom.dialog_suc
                             editor.putString(constantes.SETTING_PASS, user.password);
                             editor.commit();
 
-                            Intent i = new Intent(context, main.class);
+                            Intent i = new Intent(context, principal.class);
                             i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             startActivity(i);
                             finish();
