@@ -33,6 +33,7 @@ import com.diamante.clubconstructor.network.HelperWS;
 import com.diamante.clubconstructor.network.MethodWS;
 import com.diamante.clubconstructor.request.RequestParameter;
 import com.diamante.clubconstructor.response.ResponseData;
+import com.diamante.clubconstructor.util.functions;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -44,6 +45,7 @@ import retrofit2.Response;
 
 public class calculadora_bricks extends AppCompatActivity {
 
+    private functions function = functions.getInstance();
     private Toolbar toolbar;
     private Context context;
     private TextView textTitle, textArea, textMessage;
@@ -103,6 +105,16 @@ public class calculadora_bricks extends AppCompatActivity {
         super.onPause();
         if (isFinishing()) {
             overridePendingTransition(R.anim.zoom_forward_in, R.anim.zoom_forward_out);
+        }
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        try {
+            function._ga("Calculadora - Ladrillos", context);
+        }catch (Exception e){
+            e.printStackTrace();
         }
     }
 

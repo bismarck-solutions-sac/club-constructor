@@ -30,6 +30,7 @@ import com.diamante.clubconstructor.network.HelperWS;
 import com.diamante.clubconstructor.network.MethodWS;
 import com.diamante.clubconstructor.request.RequestParameter;
 import com.diamante.clubconstructor.response.ResponseData;
+import com.diamante.clubconstructor.util.functions;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -37,6 +38,7 @@ import retrofit2.Response;
 
 public class calculadora_list extends AppCompatActivity{
 
+    private functions function = functions.getInstance();
     private Toolbar toolbar;
     private RecyclerView recyclerView;
     private Context context;
@@ -76,6 +78,16 @@ public class calculadora_list extends AppCompatActivity{
         super.onPause();
         if (isFinishing()) {
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+        }
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        try {
+            function._ga("Calculadora - Lista", context);
+        }catch (Exception e){
+            e.printStackTrace();
         }
     }
 

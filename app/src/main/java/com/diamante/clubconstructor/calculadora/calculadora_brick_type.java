@@ -34,6 +34,7 @@ import com.diamante.clubconstructor.network.HelperWS;
 import com.diamante.clubconstructor.network.MethodWS;
 import com.diamante.clubconstructor.request.RequestParameter;
 import com.diamante.clubconstructor.response.ResponseData;
+import com.diamante.clubconstructor.util.functions;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -45,6 +46,7 @@ import retrofit2.Response;
 
 public class calculadora_brick_type extends AppCompatActivity {
 
+    private functions function = functions.getInstance();
     private Toolbar                 toolbar;
     private Context                 context;
     private RecyclerView            recyclerView;
@@ -98,6 +100,16 @@ public class calculadora_brick_type extends AppCompatActivity {
         super.onPause();
         if (isFinishing()) {
             overridePendingTransition(R.anim.zoom_back_in, R.anim.zoom_back_out);
+        }
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        try {
+            function._ga("Calculadora - Tipos", context);
+        }catch (Exception e){
+            e.printStackTrace();
         }
     }
 

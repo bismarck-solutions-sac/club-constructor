@@ -95,6 +95,16 @@ public class contacto extends AppCompatActivity {
     }
 
     @Override
+    protected void onResume(){
+        super.onResume();
+        try {
+            function._ga("Contáctame", context);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contacto);

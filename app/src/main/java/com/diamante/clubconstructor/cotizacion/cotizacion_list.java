@@ -32,6 +32,7 @@ import com.diamante.clubconstructor.network.MethodWS;
 import com.diamante.clubconstructor.request.RequestParameter;
 import com.diamante.clubconstructor.response.ResponseData;
 import com.diamante.clubconstructor.util.constantes;
+import com.diamante.clubconstructor.util.functions;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -45,6 +46,7 @@ public class cotizacion_list extends AppCompatActivity {
     private ProgressBar progressBar;
     private TextView textMessage;
     private globals global = globals.getInstance();
+    private functions function = functions.getInstance();
     private CotListAdapter adapter ;
 
     @Override
@@ -79,6 +81,16 @@ public class cotizacion_list extends AppCompatActivity {
         super.onPause();
         if (isFinishing()) {
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+        }
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        try {
+            function._ga("Cotización - Lista", context);
+        }catch (Exception e){
+            e.printStackTrace();
         }
     }
 

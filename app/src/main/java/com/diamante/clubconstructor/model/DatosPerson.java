@@ -10,6 +10,7 @@ public class DatosPerson implements Serializable {
     public String FechaNacimiento;
     public String Sexo;
     public String ApellidoMaterno;
+    public String Error;
 
     public String getDNI() {
         return DNI;
@@ -57,5 +58,13 @@ public class DatosPerson implements Serializable {
 
     public void setApellidoMaterno(String apellidoMaterno) {
         ApellidoMaterno = apellidoMaterno;
+    }
+
+    public String getError() {
+        return Error;
+    }
+
+    public void setError(String error) {
+        Error = error;
     }
 }

@@ -23,6 +23,7 @@ import com.diamante.clubconstructor.network.HelperWS;
 import com.diamante.clubconstructor.network.MethodWS;
 import com.diamante.clubconstructor.request.RequestParameter;
 import com.diamante.clubconstructor.response.ResponseData;
+import com.diamante.clubconstructor.util.functions;
 
 import java.util.regex.Pattern;
 
@@ -32,6 +33,7 @@ import retrofit2.Response;
 
 public class forgot extends AppCompatActivity {
 
+    private functions function = functions.getInstance();
     private Context         context;
     private LinearLayout    lny_0, lny_1;
     private EditText        edt_email;
@@ -50,6 +52,16 @@ public class forgot extends AppCompatActivity {
         super.onPause();
         if (isFinishing()) {
             overridePendingTransition(R.anim.right_in, R.anim.right_out);
+        }
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        try {
+            function._ga("Olvidó", context);
+        }catch (Exception e){
+            e.printStackTrace();
         }
     }
 

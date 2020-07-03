@@ -32,7 +32,6 @@ import com.google.android.gms.common.api.Status;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class main_app extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
-
     private GoogleApiClient googleApiClient;
     private SignInButton signInButton;
 

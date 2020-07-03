@@ -30,9 +30,11 @@ import com.diamante.clubconstructor.R;
 import com.diamante.clubconstructor.dialogos.dialog_custom;
 import com.diamante.clubconstructor.model.Brick;
 import com.diamante.clubconstructor.util.constantes;
+import com.diamante.clubconstructor.util.functions;
 
 public class calculadora_bricks_file extends AppCompatActivity {
 
+    private functions function = functions.getInstance();
     private Toolbar toolbar;
     private Context context;
     private Brick brick;
@@ -52,6 +54,16 @@ public class calculadora_bricks_file extends AppCompatActivity {
         super.onPause();
         if (isFinishing()) {
             overridePendingTransition(R.anim.right_in, R.anim.right_out);
+        }
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        try {
+            function._ga("Calculadora - Ficha", context);
+        }catch (Exception e){
+            e.printStackTrace();
         }
     }
 

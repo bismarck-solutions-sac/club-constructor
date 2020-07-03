@@ -20,13 +20,41 @@ import com.diamante.clubconstructor.R;
 import com.diamante.clubconstructor.globals.globals;
 import com.diamante.clubconstructor.model.User;
 import com.diamante.clubconstructor.util.constantes;
+import com.diamante.clubconstructor.util.functions;
 
 import java.io.IOException;
 
 public class image extends AppCompatActivity {
+
+    private functions function = functions.getInstance();
     private ImageView imageView;
     private AlertDialog dialog;
     private Toolbar toolbar;
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        overridePendingTransition(R.anim.right_in, R.anim.right_out);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (isFinishing()) {
+            overridePendingTransition(R.anim.right_in, R.anim.right_out);
+        }
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        try {
+            function._ga("Perfil - Imagen", this);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

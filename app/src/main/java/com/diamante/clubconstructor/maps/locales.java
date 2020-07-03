@@ -90,6 +90,17 @@ public class locales extends AppCompatActivity implements OnMapReadyCallback {
     }
 
     @Override
+    protected void onResume(){
+        super.onResume();
+        try {
+            function._ga("Locales", this);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_locales);

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +20,7 @@ import com.diamante.clubconstructor.globals.globals;
 import com.diamante.clubconstructor.model.GeneralSpinner;
 import com.diamante.clubconstructor.model.Parametros;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import java.text.DecimalFormat;
 import java.util.List;
@@ -154,12 +156,21 @@ public class functions {
         boolean connected = false;
         ConnectivityManager connec = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo[] redes = connec.getAllNetworkInfo();
-
         for (int i = 0; i < redes.length; i++) {
             if (redes[i].getState() == NetworkInfo.State.CONNECTED) {
                 connected = true;
             }
         }
         return connected;
+    }
+
+    public static void _ga (String name, Context context){
+        try {
+            FirebaseAnalytics _mga;
+            _mga = FirebaseAnalytics.getInstance(context);
+            _mga.setCurrentScreen((Activity) context, name, null /* class override */);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }

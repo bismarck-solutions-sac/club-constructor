@@ -31,6 +31,7 @@ import com.diamante.clubconstructor.principal;
 import com.diamante.clubconstructor.model.Estimated;
 import com.diamante.clubconstructor.model.EstimatedDetail;
 import com.diamante.clubconstructor.model.GeneralSpinner;
+import com.diamante.clubconstructor.util.functions;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -38,6 +39,7 @@ import java.util.List;
 
 public class calculadora_metraje extends AppCompatActivity {
 
+    private functions function = functions.getInstance();
     private Context context;
     private Toolbar toolbar;
     private TextView text_desc, text_title;
@@ -93,6 +95,16 @@ public class calculadora_metraje extends AppCompatActivity {
         super.onPause();
         if (isFinishing()) {
             overridePendingTransition(R.anim.zoom_forward_in, R.anim.zoom_back_out);
+        }
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        try {
+            function._ga("Calculadora - Metraje", context);
+        }catch (Exception e){
+            e.printStackTrace();
         }
     }
 

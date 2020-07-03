@@ -23,6 +23,7 @@ import com.diamante.clubconstructor.R;
 import com.diamante.clubconstructor.dialogos.dialog_custom;
 import com.diamante.clubconstructor.model.Local;
 import com.diamante.clubconstructor.util.constantes;
+import com.diamante.clubconstructor.util.functions;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -38,6 +39,7 @@ import java.text.NumberFormat;
 
 public class locales_detail extends AppCompatActivity implements OnMapReadyCallback {
 
+    private functions function = functions.getInstance();
     private GoogleMap mMap;
 
     private TextView textName, textAddress, textDistance, textResponsable, textPhone;
@@ -62,6 +64,17 @@ public class locales_detail extends AppCompatActivity implements OnMapReadyCallb
         super.onDestroy();
         overridePendingTransition(R.anim.zoom_back_in, R.anim.zoom_back_out);
     }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        try {
+            function._ga("Locales - Detalle", this);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

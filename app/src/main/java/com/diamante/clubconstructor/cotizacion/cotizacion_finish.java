@@ -20,9 +20,11 @@ import android.widget.TextView;
 import com.diamante.clubconstructor.R;
 import com.diamante.clubconstructor.cotizacion.adapter.CotizacionCartAdapter;
 import com.diamante.clubconstructor.model.Cotizacion;
+import com.diamante.clubconstructor.util.functions;
 
 public class cotizacion_finish extends AppCompatActivity {
 
+    private functions function = functions.getInstance();
     private Context context;
     private RecyclerView recyclerView;
     private TextView textNumero, textItems, textDireccion;
@@ -62,6 +64,16 @@ public class cotizacion_finish extends AppCompatActivity {
     public void onDestroy() {
         super.onDestroy();
         overridePendingTransition(R.anim.zoom_back_in, R.anim.zoom_back_out);
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        try {
+            function._ga("Cotización - Completa", context);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override
